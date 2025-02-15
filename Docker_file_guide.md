@@ -191,7 +191,7 @@ Docker containers have temporary storage by default, meaning:
 - /home/user/data → A folder on your computer (host machine) 🖥️
 - /app/data → A folder inside the container 📦
 - Any files created in /app/data inside the container will also appear in /home/user/data on your computer!
-- 
+ 
 To save data permanently, we use volumes to store it outside the container on your computer.
 
 -  To run the image with version tag
@@ -209,7 +209,7 @@ To save data permanently, we use volumes to store it outside the container on yo
 -  To build a Dockerfile
   ``` docker build -t myapp:v1 . ```
 
- -  To tag a Dockerfile
+ - To tag a Dockerfile
 ``` docker tag source_image:tag new_image:new_tag ```
 -  To push a Dockerfile
   ``` docker push myusername/myapp:v1 ```
@@ -218,7 +218,7 @@ To save data permanently, we use volumes to store it outside the container on yo
   ```docker
 docker compose up
 ```
--  -To stop the docker-compose.yml file , by default check for docker-compose.yml file in the directory
+-  To stop the docker-compose.yml file , by default check for docker-compose.yml file in the directory
 ```docker
 docker compose down
 ```
@@ -230,7 +230,7 @@ docker run -e ENV_VARIABLE=VALUE image_name
   ```docker
 docker builder prune
 ```
--To clear all the docker image/containers
+- To clear all the docker image/containers
 ```docker
 docker system prune
 ```
