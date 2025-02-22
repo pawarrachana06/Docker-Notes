@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  app:
+    image: myapp:v1  # Use a pre-built image or build from Dockerfile
+    build: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgresql://postgres:password@db:5432/mydatabase
+    volumes:
+      - app_data:/app/data  # Persistent storage
+    networks:
+      - my_network
+
+  db:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: mydatabase
+    volumes:
+      - db_data:/var/lib/postgresql/data  # Persistent database storage
+    networks:
+      - my_network
+
+volumes:
+  app_data:
+    driver: local
+  db_data:
+    driver: local
+
+networks:
+  my_network:
+    driver: bridge
